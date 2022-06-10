@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@devexpress/dx-react-core": "^3.0.3",
+    "@devexpress/dx-react-grid": "^3.0.3",
+    "@devexpress/dx-react-grid-material-ui": "^3.0.3",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.3",
@@ -13,7 +16,7 @@
     "@testing-library/user-event": "^14.2.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^17.0.41",
-    "@types/react": "^18.0.12",
+    "@types/react": "^17.0.39",
     "@types/react-dom": "^18.0.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
