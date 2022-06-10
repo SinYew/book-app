@@ -160,7 +160,7 @@ function LayoutContent() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4, minWidth: 500 }}>
             <Grid container spacing={3}>
               <Outlet />
             </Grid>
