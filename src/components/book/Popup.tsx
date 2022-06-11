@@ -32,6 +32,14 @@ const Popup = ({
             <TextField
               required
               margin="normal"
+              name="isbn"
+              label="ISBN"
+              value={row.isbn || ''}
+              onChange={onChange}
+            />
+            <TextField
+              required
+              margin="normal"
               name="title"
               label="Title"
               value={row.title || ''}
