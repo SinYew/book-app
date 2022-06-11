@@ -1,7 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import booksSlice from '../features/books/booksSlice';
 import transactionSlice from '../features/books/transactionSlice';
-import counterReducer from '../features/counter/counterSlice';
 import currentUserSlice from '../features/users/currentUserSlice';
 import usersReducer from '../features/users/usersSlice';
 
