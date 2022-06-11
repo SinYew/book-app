@@ -25,57 +25,38 @@ export const usersSlice = createSlice({
         // immutable state based off those changes
         state.push(action.payload)
       },
-      prepare(name:string, role: userRole) {
+      prepare(name: string, role: userRole, dateJoined: string) {
         const payload: UserState = {
           id: nanoid(),
           name,
           role,
-          dateJoined: new Date().toLocaleDateString('en-CA')
+          dateJoined
         };
 
-        return {payload}
+        return { payload }
       }
     },
     // other reducers here
-    userUpdated: {
-      reducer(state, action: PayloadAction<any>) {
-        const { id, name, role } = action.payload
-        const existingUser = state.find(user => user.id === id)
-        if (existingUser) {
-          existingUser.name = name
-          existingUser.role = role
-        }
-      },
-      prepare(id: string, name:string, role: userRole) {
-        const payload: any = {
-          id,
-          name,
-          role
-        };
-
-        return {payload}
+    userUpdated: (state, action: PayloadAction<any>) => {
+      const { id, name, role, dateJoined } = action.payload
+      const existingUser = state.find(user => user.id === id)
+      if (existingUser) {
+        existingUser.name = name
+        existingUser.role = role
+        existingUser.dateJoined = dateJoined
       }
     },
-    userDeleted: {
-      reducer(state, action: PayloadAction<any>) {
-        const { id } = action.payload
-        const existingUser = state.find(user => user.id === id)
-        if (existingUser) {
-          return state.filter(user => user.id !== id)
-        }
-      },
-      prepare(id: string) {
-        const payload: any = {
-          id
-        };
-
-        return {payload}
+    userDeleted: (state, action: PayloadAction<any>) => {
+      const { id } = action.payload
+      const existingUser = state.find(user => user.id === id)
+      if (existingUser) {
+        return state.filter(user => user.id !== id)
       }
     },
   }
 });
 
-export const { userAdded, userUpdated, userDeleted} = usersSlice.actions;
+export const { userAdded, userUpdated, userDeleted } = usersSlice.actions;
 
 export const selectUsers = (state: RootState) => state.users;
 
