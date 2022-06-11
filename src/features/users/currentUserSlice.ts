@@ -8,8 +8,21 @@ const initialState: UserState = users.find(user => user.id === "-wPwed35Pjz_aDjd
 export const currentUserSlice = createSlice({
   name: 'currentUser',
   initialState,
-  reducers: {}
+  reducers: {
+    currentUserUpdated: (state, action: PayloadAction<any>) => {
+      const { id } = action.payload
+      const currentUser = users.find(user => user.id === id)
+      if(currentUser){
+        state.id = currentUser.id
+        state.name = currentUser.name
+        state.role = currentUser.role
+        state.dateJoined = currentUser.dateJoined
+      }
+    },
+  }
 });
+
+export const { currentUserUpdated } = currentUserSlice.actions;
 
 export const selectCurrentUser = (state: RootState) => state.currentUser;
 
