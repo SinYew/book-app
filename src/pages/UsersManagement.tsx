@@ -7,6 +7,7 @@ import { ChangeSet, Column, EditingState, FilteringState, IntegratedFiltering, I
 import { selectCurrentUser } from '../features/users/currentUserSlice';
 import PopupEditing from '../components/PopupEditing';
 import Popup from '../components/user/Popup';
+import SelectUser from '../components/user/SelectUser';
 
 const UsersManagement = () => {
   const users = useAppSelector(selectUsers);
@@ -74,6 +75,7 @@ const UsersManagement = () => {
     <>
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+          <SelectUser />
           <DxGrid
             rows={users}
             columns={columns}
