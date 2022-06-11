@@ -160,8 +160,8 @@ function LayoutContent() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4, minWidth: 500 }}>
-            <Grid container spacing={3}>
+          <Container maxWidth="xl" sx={{ mt: 4, mb: 4, minWidth: 500 }}>
+            <Grid container spacing={3} justifyContent={"center"}>
               <Outlet />
             </Grid>
           </Container>
