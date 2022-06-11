@@ -24,7 +24,7 @@ export const booksSlice = createSlice({
       state.push(action.payload)
     },
     bookUpdated: (state, action: PayloadAction<any>) => {
-      const { id, isbn, title, description, genre, author, yearPublished, lastBorrower } = action.payload
+      const { id, isbn, title, description, genre, author, yearPublished, lastBorrower, borrowAvailability } = action.payload
       const existingBook = state.find(book => book.id === id)
       if (existingBook) {
         existingBook.title = title
@@ -34,6 +34,7 @@ export const booksSlice = createSlice({
         existingBook.author = author
         existingBook.yearPublished = yearPublished
         existingBook.lastBorrower = lastBorrower
+        existingBook.borrowAvailability = borrowAvailability
       }
     },
     bookDeleted: (state, action: PayloadAction<any>) => {
