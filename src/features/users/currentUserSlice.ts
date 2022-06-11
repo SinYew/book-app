@@ -1,4 +1,4 @@
-import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { users } from '../../data/users';
 import { UserState } from './usersSlice';

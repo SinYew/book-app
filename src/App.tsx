@@ -1,6 +1,4 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from './components/Layout';
 import './App.css';
 import BooksManagement from './pages/BooksManagement';
