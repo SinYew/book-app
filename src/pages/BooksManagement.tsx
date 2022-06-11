@@ -1,8 +1,9 @@
 import { ChangeSet, Column, DataTypeProvider, EditingState, FilteringState, IntegratedFiltering, IntegratedPaging, IntegratedSorting, PagingState, Sorting, SortingState } from '@devexpress/dx-react-grid';
 import { Grid as DxGrid, PagingPanel, Table, TableEditColumn, TableEditRow, TableFilterRow, TableHeaderRow } from '@devexpress/dx-react-grid-material-ui';
 import { Chip, Grid, Paper } from '@mui/material';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../app/hooks';
+import BorrowReturn from '../components/book/BorrowReturn';
 import Popup from '../components/book/Popup';
 import PopupEditing from '../components/PopupEditing';
 import { bookAdded, bookDeleted, BookState, bookUpdated, selectBooks } from '../features/books/booksSlice';
@@ -15,6 +16,7 @@ const BooksManagement = () => {
 
   const [columns] = useState<Column[]>([
     { name: 'id', title: 'Id' },
+    { name: 'isbn', title: 'ISBN' },
     { name: 'title', title: 'Title' },
     { name: 'genre', title: 'Genre' },
     { name: 'author', title: 'Author' },
@@ -53,13 +55,14 @@ const BooksManagement = () => {
     const { added, changed, deleted } = changes;
 
     if (added) {
-      const { title, description, genre, author, yearPublished } = added[0];
+      const { title, isbn, description, genre, author, yearPublished } = added[0];
       const formattedDate = yearPublished && yearPublished.isValid() ? yearPublished.format("YYYY") : new Date().getFullYear().toString();
       const startingAddedId = books.length > 0 ? books[books.length - 1].id + 1 : 0;
 
       const newBook: BookState = {
         id: startingAddedId,
         title,
+        isbn,
         description,
         genre,
         author,
@@ -107,6 +110,7 @@ const BooksManagement = () => {
 
   return (
     <>
+      <BorrowReturn />
       <Grid item xs={12}>
         <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
           <DxGrid

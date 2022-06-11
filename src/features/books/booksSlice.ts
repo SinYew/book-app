@@ -4,6 +4,7 @@ import { books } from '../../data/books';
 
 export interface BookState {
   id: number,
+  isbn: string,
   title: string,
   description: string,
   genre: string,
@@ -23,10 +24,11 @@ export const booksSlice = createSlice({
       state.push(action.payload)
     },
     bookUpdated: (state, action: PayloadAction<any>) => {
-      const { id, title, description, genre, author, yearPublished } = action.payload
+      const { id, isbn, title, description, genre, author, yearPublished } = action.payload
       const existingBook = state.find(book => book.id === id)
       if (existingBook) {
         existingBook.title = title
+        existingBook.isbn = isbn
         existingBook.description = description
         existingBook.genre = genre
         existingBook.author = author
