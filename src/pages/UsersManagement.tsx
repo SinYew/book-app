@@ -95,11 +95,14 @@ const UsersManagement = () => {
             <Table />
             <TableHeaderRow showSortingControls />
             <TableEditRow />
-            <TableEditColumn
-              showAddCommand={isAdmin()}
-              showEditCommand={isAdmin()}
-              showDeleteCommand={isAdmin()}
-            />
+            {
+              isAdmin() ? 
+              <TableEditColumn
+                showAddCommand
+                showEditCommand
+                showDeleteCommand
+              /> : <></>
+            }
             <TableFilterRow />
             <PagingPanel />
 
