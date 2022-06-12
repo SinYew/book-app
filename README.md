@@ -2,16 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
->### `npx create-react-app my-app --template redux-typescript`
+### `npx create-react-app my-app --template redux-typescript`
 
 ## Available Scripts
----------------------
 
 In the project directory, you can run:
 
->### `npm install`
+### `npm install`
 Install packages dependencies
->### `npm start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -20,7 +19,6 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ## Project Structure
-------------------------------------------
 
     .
     ├── ...
@@ -51,7 +49,7 @@ You will also see any lint errors in the console.
     └── ...
 
 ## Scalability
---------------
+
 React
 * Modularity and reusability
 * Low coupling between components with clearly defined interface
@@ -59,7 +57,6 @@ React
 * A single source of truth for global states with Redux
 
 ## Learn More
---------------
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
