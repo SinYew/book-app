@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { JSXElementConstructor, ReactElement } from 'react';
 import { Plugin, Template, TemplateConnector, TemplatePlaceholder } from '@devexpress/dx-react-core';
 
-const PopupEditing = React.memo(({ popupComponent: Popup }: { popupComponent: any }) => (
+const PopupEditing = React.memo(({ 
+    popupComponent: Popup,
+    children,
+    popupTitle,
+    popupSaveButtonText,
+  }
+  : { 
+    popupComponent: any, 
+    children: ReactElement<any, string | JSXElementConstructor<any>>,
+    popupTitle: string,
+    popupSaveButtonText: string
+  }) => (
   <Plugin>
     <Template name="popupEditing">
       <TemplateConnector>
@@ -62,13 +73,28 @@ const PopupEditing = React.memo(({ popupComponent: Popup }: { popupComponent: an
 
           const open = editingRowIds.length > 0 || isNew;
           return (
+            // <Popup
+            //   open={open}
+            //   row={editedRow}
+            //   onChange={processValueChange}
+            //   onApplyChanges={applyChanges}
+            //   onCancelChanges={cancelChanges}
+            // />
+
             <Popup
+              title={popupTitle}
+              saveButtonText={popupSaveButtonText}
               open={open}
-              row={editedRow}
-              onChange={processValueChange}
               onApplyChanges={applyChanges}
               onCancelChanges={cancelChanges}
-            />
+            >
+              {/* <BookForm
+                row={editedRow}
+                onChange={processValueChange}
+              /> */}
+              {/* { children } */}
+              {React.cloneElement(children, { row: editedRow, onChange: processValueChange })}
+            </Popup>
           );
         }}
       </TemplateConnector>

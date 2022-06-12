@@ -4,12 +4,14 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { BookState, bookUpdated, selectBooks } from "../../features/books/booksSlice";
 import { bookBorrow, bookReturn, selectTransactions, TransactionState } from "../../features/books/transactionSlice";
 import { selectCurrentUser } from "../../features/users/currentUserSlice";
-import BorrowReturnPopup from "./BorrowReturnPopup";
+import { UserState } from "../../features/users/usersSlice";
+import Popup from "../Popup";
+import BorrowReturnForm from "./BorrowReturnForm";
 
 const BorrowReturn = () => {
-  const books = useAppSelector(selectBooks);
-  const transactions = useAppSelector(selectTransactions);
-  const currentUser = useAppSelector(selectCurrentUser);
+  const books: BookState[] = useAppSelector(selectBooks);
+  const transactions: TransactionState[] = useAppSelector(selectTransactions);
+  const currentUser: UserState = useAppSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
 
   const [open, setOpen] = useState(false);
@@ -100,13 +102,24 @@ const BorrowReturn = () => {
         <Button variant="contained" sx={{ mr: 3 }} onClick={onBorrow}>Borrow</Button>
         <Button variant="contained" color="secondary" onClick={onReturn}>Return</Button>
       </Grid>
-      <BorrowReturnPopup
+
+      <Popup
+        title={"Book Details"}
+        saveButtonText={status === "borrow" ? "Borrow" : "Return"}
+        open={open}
+        onApplyChanges={applyChanges}
+        onCancelChanges={cancelChanges}
+      >
+        <BorrowReturnForm onChange={onChange}/>
+      </Popup>
+
+      {/* <BorrowReturnPopup
         open={open}
         status={status}
         onChange={onChange}
         onApplyChanges={applyChanges}
         onCancelChanges={cancelChanges}
-      />
+      /> */}
     </>
   )
 };

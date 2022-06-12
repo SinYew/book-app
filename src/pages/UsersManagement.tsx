@@ -6,8 +6,9 @@ import { Grid as DxGrid, PagingPanel, Table, TableEditColumn, TableEditRow, Tabl
 import { ChangeSet, Column, EditingState, FilteringState, IntegratedFiltering, IntegratedPaging, IntegratedSorting, PagingState, Sorting, SortingState } from '@devexpress/dx-react-grid';
 import { selectCurrentUser } from '../features/users/currentUserSlice';
 import PopupEditing from '../components/PopupEditing';
-import Popup from '../components/user/Popup';
+import Popup from '../components/Popup';
 import SelectUser from '../components/user/SelectUser';
+import UserForm from '../components/user/UserForm';
 
 const UsersManagement = () => {
   const users = useAppSelector(selectUsers);
@@ -116,7 +117,10 @@ const UsersManagement = () => {
             <TableFilterRow />
             <PagingPanel />
 
-            <PopupEditing popupComponent={Popup} />
+            {/* <PopupEditing popupComponent={Popup} /> */}
+            <PopupEditing popupComponent={Popup} popupTitle={"User Details"} popupSaveButtonText={"Save"}>
+              <UserForm />
+            </PopupEditing>
           </DxGrid>
         </Paper>
       </Grid>

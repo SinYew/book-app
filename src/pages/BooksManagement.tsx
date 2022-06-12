@@ -3,8 +3,9 @@ import { Grid as DxGrid, PagingPanel, Table, TableEditColumn, TableEditRow, Tabl
 import { Chip, Grid, Paper } from '@mui/material';
 import { useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../app/hooks';
+import BookForm from '../components/book/BookForm';
 import BorrowReturn from '../components/book/BorrowReturn';
-import Popup from '../components/book/Popup';
+import Popup from '../components/Popup';
 import PopupEditing from '../components/PopupEditing';
 import { bookAdded, bookDeleted, BookState, bookUpdated, selectBooks } from '../features/books/booksSlice';
 import { selectCurrentUser } from '../features/users/currentUserSlice';
@@ -158,7 +159,10 @@ const BooksManagement = () => {
 
             <TableFilterRow />
             <PagingPanel />
-            <PopupEditing popupComponent={Popup} />
+            {/* <PopupEditing popupComponent={Popup} /> */}
+            <PopupEditing popupComponent={Popup} popupTitle={"Book Details"} popupSaveButtonText={"Save"}>
+              <BookForm />
+            </PopupEditing>
           </DxGrid>
         </Paper>
       </Grid>
