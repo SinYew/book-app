@@ -117,7 +117,6 @@ const UsersManagement = () => {
             <TableFilterRow />
             <PagingPanel />
 
-            {/* <PopupEditing popupComponent={Popup} /> */}
             <PopupEditing popupComponent={Popup} popupTitle={"User Details"} popupSaveButtonText={"Save"}>
               <UserForm />
             </PopupEditing>

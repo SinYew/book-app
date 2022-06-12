@@ -112,14 +112,6 @@ const BorrowReturn = () => {
       >
         <BorrowReturnForm onChange={onChange}/>
       </Popup>
-
-      {/* <BorrowReturnPopup
-        open={open}
-        status={status}
-        onChange={onChange}
-        onApplyChanges={applyChanges}
-        onCancelChanges={cancelChanges}
-      /> */}
     </>
   )
 };

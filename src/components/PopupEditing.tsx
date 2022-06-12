@@ -73,14 +73,6 @@ const PopupEditing = React.memo(({
 
           const open = editingRowIds.length > 0 || isNew;
           return (
-            // <Popup
-            //   open={open}
-            //   row={editedRow}
-            //   onChange={processValueChange}
-            //   onApplyChanges={applyChanges}
-            //   onCancelChanges={cancelChanges}
-            // />
-
             <Popup
               title={popupTitle}
               saveButtonText={popupSaveButtonText}
@@ -88,11 +80,6 @@ const PopupEditing = React.memo(({
               onApplyChanges={applyChanges}
               onCancelChanges={cancelChanges}
             >
-              {/* <BookForm
-                row={editedRow}
-                onChange={processValueChange}
-              /> */}
-              {/* { children } */}
               {React.cloneElement(children, { row: editedRow, onChange: processValueChange })}
             </Popup>
           );

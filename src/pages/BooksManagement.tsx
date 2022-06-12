@@ -159,7 +159,6 @@ const BooksManagement = () => {
 
             <TableFilterRow />
             <PagingPanel />
-            {/* <PopupEditing popupComponent={Popup} /> */}
             <PopupEditing popupComponent={Popup} popupTitle={"Book Details"} popupSaveButtonText={"Save"}>
               <BookForm />
             </PopupEditing>
